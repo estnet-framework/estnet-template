@@ -1,0 +1,40 @@
+# MEDIUM, OBSTACLES, RADIO AND DATA RATE
+
+# EARTH OBSTACLE
+*.physicalEnvironment.config = xmldoc("../data/earthObstacle.xml")
+*.radioMedium.obstacleLoss.typename = "IdealObstacleLoss"
+
+# RADIO MEDIUM
+*.mediumType = "inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium"
+# need to specify these manually for contact plan creation
+*.radioMedium.propagation.typename = "estnet.radio.propagation.ConstantSpeedPropagationWithMovement"
+*.radioMedium.pathLoss.typename = "FreeSpacePathLoss"
+*.radioMedium.analogModel.typename = "ScalarAnalogModel"
+*.radioMedium.backgroundNoise.typename = "IsotropicScalarBackgroundNoise"
+*.radioMedium.backgroundNoise.power = -132.39dBm	# -132.39dBm noise floor at reference temp 290K and 14.4 kHz bandwidth
+*.radioMedium.mediumLimitCache.maxTransmissionDuration = 300 ms
+
+# GENERAL RADIO PARAMETERS
+*.*.networkHost.wlan[*].radioType = "estnet.radio.apsk.APSKScalarRadioExtraStatistics"
+*.*.networkHost.wlan[*].radio.transmitter.typename = "estnet.radio.gmsk.APSKScalarTransmitterWithGMSK"
+*.*.networkHost.wlan[*].radio.receiver.typename = "estnet.radio.gmsk.APSKScalarReceiverWithGMSK"
+*.*.networkHost.wlan[*].radio.receiver.snirThreshold = 11.26dB      # at BER 10^-5 for GMSK; alternatively 0dB if another BER model is used
+*.*.networkHost.wlan[*].radio.centerFrequency = 435.600MHz
+*.*.networkHost.wlan[*].radio.bandwidth = 14.4kHz	# typically 1.5x bit rate
+*.*.networkHost.wlan[*].radio.transmitter.preambleDuration = 0s
+*.*.networkHost.wlan[*].radio.transmitter.headerLength = 1B
+*.*.networkHost.wlan[*].radio.*.modulation = "GMSK"
+*.*.networkHost.wlan[*].radio.receiver.errorModel.typename = "estnet.radio.errormodel.PerfectErrorModel"
+
+# SATELLITE RADIO
+*.sat[*].networkHost.wlan[*].radio.transmitter.power = 1W	# Gomspace AX100 1W
+*.sat[*].networkHost.wlan[*].radio.receiver.energyDetection = -132.38dBm	# noise floor at reference temp 290K and 14.4 kHz bandwidth
+*.sat[*].networkHost.wlan[*].radio.receiver.sensitivity = -132.38dBm	# noise floor at reference temp 290K and 14.4 kHz bandwidth
+
+# GROUND STATION RADIO
+*.cg[*].networkHost.wlan[*].radio.transmitter.power = 25W
+*.cg[*].networkHost.wlan[*].radio.receiver.energyDetection = -132.38dBm		# noise floor at reference temp 290 K and 14.4 kHz bandwidth
+*.cg[*].networkHost.wlan[*].radio.receiver.sensitivity = -132.38dBm		# noise floor at reference temp 290 K and 14.4 kHz bandwidth
+
+# DATA RATE
+*.*.networkHost.wlan[*].bitrate = 9600bps

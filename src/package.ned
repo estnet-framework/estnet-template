@@ -1,0 +1,3 @@
+package estnettemplate;
+
+@license(LGPL);

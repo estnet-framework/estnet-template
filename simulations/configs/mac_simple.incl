@@ -1,0 +1,3 @@
+# MAC
+*.*.networkHost.wlan[*].macType = "estnet.mac.ideal.IdealMacExtraStatistics"
+*.*.networkHost.wlan[*].mac.useAck = false

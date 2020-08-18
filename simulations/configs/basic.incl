@@ -1,0 +1,22 @@
+# BASIC CONFIGURATION
+
+network = estnet.SpaceTerrestrialNetwork
+
+# suppress printing of undisposed packets
+print-undisposed = false
+
+# LOGGING
+cmdenv-log-prefix = "[%l]\t%C: %|"
+
+# RECORDING
+output-vector-file = ../${resultdir}/${configname}-${runnumber}.vec
+output-scalar-file = ../${resultdir}/${configname}-${runnumber}.sca
+outputvectormanager-class="omnetpp::envir::SqliteOutputVectorManager"
+outputscalarmanager-class="omnetpp::envir::SqliteOutputScalarManager"
+
+# VISUALIZATION
+*.sat[*].osgNode.modelURL = "../data/UWEModel.STL.500.scale.0,-90,0.rot"
+*.cg[*].osgNode.modelURL = "../data/UWEModel.STL.0,90,0.rot"
+*.g[*].modelURL = "../data/UWEModel.STL.0,90,0.rot"
+*.jammer[*].modelURL = "../data/UWEModel.STL.0,90,0.rot"
+*.osgEarthScene.sceneModel = "../data/blueMarble.earth"

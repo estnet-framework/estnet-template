@@ -1,0 +1,18 @@
+# add required libraries for OpenSceneGraph and osgEarth
+ifeq ($(WITH_OSG),yes)
+OMNETPP_LIBS += $(filter-out $(USERIF_LIBS),$(OSG_LIBS) -losgAnimation)
+endif
+ifeq ($(WITH_OSGEARTH),yes)
+OMNETPP_LIBS += $(filter-out $(USERIF_LIBS),$(OSGEARTH_LIBS) -losgEarthFeatures -losgEarthSymbology -losgEarthAnnotation)
+endif
+
+ifeq ($(OS),Windows_NT)
+LIBS += -lWS2_32
+endif
+
+# message compiler
+MSGC:=$(MSGC) --msg6
+
+
+#add include path for deps
+INCLUDE_PATH += -Iestnet/src/common/

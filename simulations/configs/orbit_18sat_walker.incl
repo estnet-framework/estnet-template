@@ -1,0 +1,5 @@
+# SATELLITE ORBITS
+*.numS = 18
+*.sat[*].networkHost.mobility.positionPropagatorType = "PositionPropagatorSGP4File"
+# 6 orbital planes, 3 sat on each plane, 45deg inclination, height 698km
+*.sat[*].networkHost.mobility.positionPropagator.tleFile = "./configs/tles/walker_o6_s3_i45_h698.tle"

@@ -1,0 +1,35 @@
+# omnet project files
+out/
+simulations/run
+simulations/.qtenvrc
+src/Makefile
+
+# built binaries
+*.exe
+src/estnet
+src/estnet_dbg
+
+# generated source or object files
+*_m.h
+*_m.cc
+*.o
+
+#result files
+simulations/configs/results
+
+# misc
+.cmdenv-log
+
+# files not supposed to be shared with others
+simulations/local
+simulations/omnetpp_tmp_*.ini
+simulations/omnetpp*_debug.ini
+simulations/results
+
+# settings
+.settings
+
+*.anf
+
+results/
+/.computed/

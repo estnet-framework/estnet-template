@@ -1,0 +1,4 @@
+# LOGGING
+**.networkHost.basicApp[*].printReceivedPacketsNo = true
+**.networkHost.basicApp[*].printSentPacketsNo = true
+**.networkHost.basicApp[*].printMissingPacketsNo = true

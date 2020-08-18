@@ -1,0 +1,4 @@
+# SATELLITE ORBITS
+*.numS = 1
+*.sat[*].networkHost.mobility.positionPropagatorType = "PositionPropagatorSGP4File"
+*.sat[*].networkHost.mobility.positionPropagator.tleFile = "./configs/tles/UWE3.tle"

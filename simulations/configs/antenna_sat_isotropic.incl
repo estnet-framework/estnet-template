@@ -1,0 +1,5 @@
+# ANTENNA
+*.sat[*].networkHost.wlan[*].radio.antenna.typename = "IsotropicAntenna"
+*.sat[*].networkHost.wlan[*].radio.antenna.gain = 0dB
+*.sat[*].networkHost.wlan[*].radio.antenna.mobilityModule = "^.^.^.mobility"
+*.sat[*].osgNode.satConeColor = ""

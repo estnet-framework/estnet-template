@@ -1,0 +1,6 @@
+# GROUND STATIONS
+*.numCg = 1     # number of ground stations
+*.cg[0].networkHost.mobility.lat = 49.786844deg
+*.cg[0].networkHost.mobility.lon = 9.980713deg
+*.cg[0].networkHost.mobility.alt = 200m
+*.cg[0].label = "Wuerzburg, Germany"

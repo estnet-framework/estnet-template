@@ -1,0 +1,6 @@
+# RECORDING
+record-eventlog = false
+**.vector-recording = false
+**.scalar-recording = false
+**.statistic-recording = false
+**.bin-recording = false

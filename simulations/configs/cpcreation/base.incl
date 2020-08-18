@@ -1,0 +1,39 @@
+################################################################################################
+# Include this incl into an .ini file to create a contact plan for the .ini network
+# This is automatically done with the createContactPlan.sh script in the contactplan folder
+################################################################################################
+
+# no recodings during the contact plan creation
+*.*.printReceivedPacketsNo = false
+*.*.printSentPacketsNo = false
+*.*.printMissingPacketsNo = false
+*.*.printNoPackets = false
+
+# set up contact plan creating modules
+*.mediumType = "ContactPlanCreatingRadioMedium"
+*.*.hostType = "estnet.contactplan.ContactPlanCreatingNode"
+*.cg[*].fillUpApps = false
+*.*.sending = false
+*.radioMedium.propagation.typename = "inet.physicallayer.propagation.ConstantSpeedPropagation"
+*.radioMedium.propagation.ignoreMovementDuringPropagation = true
+*.radioMedium.propagation.ignoreMovementDuringReception = true
+*.radioMedium.propagation.ignoreMovementDuringTransmission = true
+*.contactPlanManager.contactPlanFile = ""
+*.*.networkHost.wlan[*].radio.receiver.errorModel.typename = "estnet.radio.errormodel.PerfectErrorModel"
+
+# remove multiple radios
+*.numRadios = 1
+
+# mac
+*.*.networkHost.wlan[*].macType = "estnet.mac.ideal.IdealMacExtraStatistics"
+*.*.networkHost.wlan[*].mac.useAck = false
+
+# set snir threshold to cp creation value
+**.networkHost.wlan[*].radio.receiver.useCpCreationParameters = true
+
+
+# using omnidirectional antenna to model all possible attitudes
+**.networkHost.wlan[*].radio.antenna.typename = "estnet.antenna.contactplan.OmnidirectionalAntennaCpr"
+
+# use another interval for contact plan generation
+#*.radioMedium.checkInterval = 1s
