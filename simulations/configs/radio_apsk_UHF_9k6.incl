@@ -1,11 +1,11 @@
 # MEDIUM, OBSTACLES, RADIO AND DATA RATE
 
 # EARTH OBSTACLE
-*.physicalEnvironment.config = xmldoc("../data/earthObstacle.xml")
+*.physicalEnvironment.config = xmldoc("../../data/earthObstacle.xml")
 *.radioMedium.obstacleLoss.typename = "IdealObstacleLoss"
 
 # RADIO MEDIUM
-*.mediumType = "inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium"
+*.mediumType = "inet.physicallayer.wireless.apsk.packetlevel.ApskScalarRadioMedium"
 # need to specify these manually for contact plan creation
 *.radioMedium.propagation.typename = "estnet.radio.propagation.ConstantSpeedPropagationWithMovement"
 *.radioMedium.pathLoss.typename = "FreeSpacePathLoss"
